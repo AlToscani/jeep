@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="data:;base64,=">
@@ -9,16 +8,18 @@
 </head>
 
 <body>
-    <h1>Hello!</h1>
-    <form action="greeter">
-        <!--
-            TODO: Pass to the servlet two parameters:
-            
-            user: the user name
-            mood: the user mood, chosen among happy, sleepy, active, ...
-         -->
-        <button>OK</button>
-    </form>
+	<h1>Hello!</h1>
+	<form action="mood.jsp">
+		<label>User: <input name="name" placeholder="Enter your name"></label>
+		<div>
+			<p>Declare your mood kind User:</p>
+			<label><input type="radio" name="mood" value="happy" checked>happy</label>
+			<label><input type="radio" name="mood" value="active">active</label>
+			<label><input type="radio" name="mood" value="hopeful">hopeful</label>
+			<label><input type="radio" name="mood" value="sleepy">sleepy</label>
+		</div>
+		<button>OK</button>
+	</form>
 </body>
 
 </html>

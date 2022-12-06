@@ -9,15 +9,8 @@
 <title>Hello</title>
 </head>
 
-<body class="active">
-    Hello!
-
-    <!--
-        TODO: Use the param to
-        
-        (1) Set the color background color accordingly to their mood
-        (2) Greet the users
-     -->
+<body class="${param.mood}">
+    Hello ${param.name}!
 </body>
 
 </html>
