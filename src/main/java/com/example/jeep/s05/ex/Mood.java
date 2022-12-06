@@ -13,20 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/s05/mood")
 public class Mood extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Mood() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private static MoodChecker checker = MoodChecker.getInstance();
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String mood = checker.checked(request.getParameter("mood"));
+		String name = request.getParameter("name");
+		if(name.isBlank()) {
+			name = "Anonimo";
+		}
+		request.setAttribute("name", name);
+		request.setAttribute("mood", mood);
+		request.getRequestDispatcher("/s05/ex/mood.jsp").forward(request, response);
 	}
 
 }
